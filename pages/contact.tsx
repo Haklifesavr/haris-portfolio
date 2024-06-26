@@ -77,7 +77,7 @@ const Contact = () => {
 
     return (
         <Layout
-            title='Haris Khan contact page'
+            title='Haris Khan - Contact Page'
             desc='If you have questions or need help you can reach me out at hak173129@gmail.com | Or send a message through the form.'>
             <Box sx={{ overflowX: 'hidden' }}>
                 <Container
