@@ -20,7 +20,7 @@ const Layout = ({navbarSx, title ,children ,desc } : ILayout) => {
     <Head >
         <title>{title || "Haris Khan - Full Stack Engineer"}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link rel="shortcut icon" href="https://res.cloudinary.com/dazvawpqd/image/upload/v1719405154/pfp_i4g7u2.png" />
+        <link rel="shortcut icon" href="https://res.cloudinary.com/dazvawpqd/image/upload/v1719411558/pfp_m4o8jt.png" />
   
    
     
@@ -36,7 +36,7 @@ const Layout = ({navbarSx, title ,children ,desc } : ILayout) => {
 <meta property="og:description" content="Haris Khan - Full Stack Engineer"/>
 
 
-<meta property="og:image" content="https://res.cloudinary.com/dazvawpqd/image/upload/v1719405154/pfp_i4g7u2.png"/>
+<meta property="og:image" content="https://res.cloudinary.com/dazvawpqd/image/upload/v1719411558/pfp_m4o8jt.png"/>
    
    <meta httpEquiv="content-language" content="en"/>
     <meta charSet="UTF-8"/>

@@ -7,9 +7,6 @@ import gsap from 'gsap';
 
 const Logo = ({toggleDrawer, colorMode, color, source} : any) => {
     const router = useRouter()
-    const imageStyle = {
-        filter: colorMode.mode === 'dark' ? 'none' : 'invert(1)',
-      };
     return (
         <Box
             onClick={() => {
@@ -32,7 +29,6 @@ const Logo = ({toggleDrawer, colorMode, color, source} : any) => {
             <Image
                 src={logo}
                 alt="Logo"
-                style={imageStyle}
                 width={60}
                 height={60}
             />
