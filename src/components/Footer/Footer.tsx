@@ -81,10 +81,10 @@ function Footer() {
                             >Home</Typography>
                             <Link href='/contact'>Contact</Link>
                          
-                            <Typography 
+                            {/* <Typography 
                             className='FooterLink'
                             onClick={()=>{router.push('/'); gsap.to(window, {duration: .5, scrollTo: `#about`})}}
-                            >About</Typography>
+                            >About</Typography> */}
                         </Box>
 
                     </Grid>
