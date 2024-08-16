@@ -7,6 +7,7 @@ import {
     CircularProgress
 } from '@mui/material';
 import { useRef, useEffect, useState, useContext } from 'react';
+import CursorAnimation from '../src/gsap/CursorAnimation';
 import HeroSectionAnimation from '../src/gsap/HeroSectionAnimation';
 import gsap from 'gsap';
 import { Divider } from '@mui/material';
@@ -18,6 +19,14 @@ import emailjs from '@emailjs/browser';
 import { ColorModeContext } from './_app';
 
 const Contact = () => {
+    const ball = useRef()
+
+    useEffect(() => {
+        if (ball && ball.current) {
+            CursorAnimation(ball.current)
+        }
+
+    }, [])
     const colorMode = useContext(ColorModeContext);
 
     const ref = useRef(null);
@@ -180,7 +189,6 @@ const Contact = () => {
                                     onChange={(e) => setName(e.target.value)} />
                                 <Input 
                                     name="user_phone" 
-                                    type='number' 
                                     label='Phone'
                                     value={phone}
                                     onChange={(e) => setPhone(e.target.value)} />
@@ -252,6 +260,16 @@ const Contact = () => {
                     </Box>
                     <SocialMedia />
                 </Container>
+                <Box
+                    ref={ball}
+                    sx={{
+                    display: {
+                        xs: 'none',
+                        md: 'block'
+                    }
+                }}
+                    className="ball">
+                </Box>
             </Box>
         </Layout>
     );

@@ -14,20 +14,6 @@ const ProjectCard = ({
 }: IProjectCard) => {
   const ref = useRef(null);
 
-  const [cursorPosition, setCursorPosition] = useState({ y: 0, x: 0 });
-  const [elementSize, setElementSize] = useState({ x: 0, y: 0 });
-
-  const onMouseMove = (e: any) => {
-    setCursorPosition({ y: e.screenY, x: e.screenX });
-  };
-
-  useEffect(() => {
-    if (ref && ref.current)
-      setElementSize({ x: ref.current['offsetWidth'], y: ref.current['offsetHeight'] });
-  }, []);
-
-  const rotation = `rotateY(${(elementSize.x / 2 - cursorPosition.x) / 25}deg) rotateX(${(elementSize.y / 2 - cursorPosition.y) / 30}deg)`;
-
   return (
     <Box
       className={className}
@@ -77,15 +63,7 @@ const ProjectCard = ({
       </Box>
       <Box
         ref={ref}
-        onMouseMove={onMouseMove}
         sx={{
-          transition: 'all .1s ease',
-          '&:hover': {
-            transform: {
-              xs: `translateY(-25%)`,
-              md: `${rotation} ${isReversed ? 'translateX(-25%)' : 'translateX(25%)'}`
-            }
-          },
           borderRadius: '6px',
           width: {
             xs: '94%',
@@ -145,8 +123,6 @@ const ProjectCard = ({
                 sx={{
                     ...btnStyles,
                     padding: '.5em .8em',
-                    color: 'white',
-                    border: '1px solid #0092ff'
                   }}
               >
                 <Typography fontSize='12px'>
@@ -154,7 +130,6 @@ const ProjectCard = ({
                 </Typography>
               </Button>
             </a>
-
             {/* <a href={"https://crm-django-sz3c6uf2gq-uc.a.run.app/"} rel="noreferrer" target="_blank">
               <Button
                 variant='contained'
