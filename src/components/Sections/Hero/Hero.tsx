@@ -129,7 +129,7 @@ const Hero = () => {
                             })}>
                             View Projects
                         </Button>
-                        <a href="https://drive.google.com/file/d/1DMY5OCGLEMhhEBUtRdQj1PcyzW73OVYT/view?usp=sharing" rel="noreferrer" target='_blank'>
+                        <a href="https://drive.google.com/file/d/1axTLH52LGJ1w1B-dmoi39cF_mtMlqb0B/view?usp=sharing" rel="noreferrer" target='_blank'>
                             <Button
                                 className='b2'
                                 sx={{
