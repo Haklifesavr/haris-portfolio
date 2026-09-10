@@ -30,7 +30,7 @@ const Layout = ({navbarSx, title ,children ,desc } : ILayout) => {
 <meta property="og:title" content="Haris Khan - Full Stack Engineer" />
 
 
-<meta property="og:url" content="https://codewithharis.vercel.app" />
+<meta property="og:url" content="https://hariskhan-app.vercel.app/" />
 
 
 <meta property="og:description" content="Haris Khan - Full Stack Engineer"/>
