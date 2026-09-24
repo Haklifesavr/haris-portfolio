@@ -255,7 +255,7 @@ const Contact = () => {
                             <ContactBox 
                                 t1='Location' t2='Currently living in' t3='Lahore/Pakistan' />
                             <ContactBox 
-                                t1='Contact Directly ' t2='Phone Number' t3='+92 3219427983' />
+                                t1='Contact Directly ' t2='Phone Number' t3='+92 3340413873' />
                         </Box>
                     </Box>
                     <SocialMedia />

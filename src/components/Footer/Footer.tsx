@@ -94,7 +94,7 @@ function Footer() {
                             {/* <a target='_blank' rel="noreferrer" href='https://github.com/VitoMedlej'>Github</a> */}
                             <Typography variant='h1' fontSize='1em'>hak173129@gmail.com</Typography>
                             <Typography variant='h1' fontSize='1em'>Lahore/Pakistan</Typography>
-                            <Typography variant='h1' fontSize='1em'>+92 3219427983</Typography>
+                            <Typography variant='h1' fontSize='1em'>+92 3340413873</Typography>
                         </Box>
                     </Grid>
                 </Grid>
