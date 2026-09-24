@@ -1,16 +1,13 @@
 import { PaletteMode, createTheme } from '@mui/material';
-import {  Dispatch, SetStateAction, useMemo, useState } from 'react'
+import { Dispatch, SetStateAction, useMemo, useState } from 'react'
 
+const ThemeHook = (mode: 'light' | 'dark', setMode: Dispatch<SetStateAction<"light" | "dark">>) => {
 
-
-
-
-const ThemeHook = (mode : 'light' | 'dark',setMode :  Dispatch<SetStateAction<"light" | "dark">>) => {
-  
     const color = mode === 'light'
-    ? '#000000'
-    : '#ffffff'
-    const getDesignTokens = (mode : PaletteMode) => ({
+        ? '#000000'
+        : '#ffffff'
+
+    const getDesignTokens = (mode: PaletteMode) => ({
         typography: {
             "fontFamily": `'Montserrat', sans-serif`,
             "fontSize": 16,
@@ -37,9 +34,9 @@ const ThemeHook = (mode : 'light' | 'dark',setMode :  Dispatch<SetStateAction<"l
         },
 
         palette: {
-      
+
             mode,
-         
+
             ...(mode === 'light'
                 ? {
                     primary: {
@@ -54,15 +51,15 @@ const ThemeHook = (mode : 'light' | 'dark',setMode :  Dispatch<SetStateAction<"l
                     background: {
                         default: '#ffffff'
                     },
-             
+
                     text: {
-                        primary: '#000000'
+                        primary: color
                     },
                 }
                 : {
-                     
+
                     // palette values for dark mode
-                  divider: '#353535',
+                    divider: '#353535',
                     background: {
                         default: '#232323'
                     },
@@ -70,13 +67,13 @@ const ThemeHook = (mode : 'light' | 'dark',setMode :  Dispatch<SetStateAction<"l
                         main: '#0092ff'
                     },
                     text: {
-                        primary: '#000000'
+                        primary: color
                     }
                 })
         }
     });
 
-  
+
     return getDesignTokens
 }
 
