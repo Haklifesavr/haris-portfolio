@@ -36,12 +36,13 @@ const styles = {
 // anchor falls back to the browser's default link blue unless something
 // overrides it, and that's what was happening here.
 const footerLinkStyles = {
-    color: '#66b2ff',
+    color: '#0092ff',
+    fontWeight: 500,
     textDecoration: 'none',
     cursor: 'pointer',
     width: 'fit-content',
     ':hover': {
-        color: '#99ccff'
+        color: '#66b2ff'
     }
 }
 
