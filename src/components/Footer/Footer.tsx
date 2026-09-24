@@ -13,13 +13,6 @@ function Copyright() {
             textAlign:'center',
             margin : '1em auto'
         }}>
-            {/* <Typography variant='h1' fontSize='1em'>
-                {'Copyright © '}
-                <Link color="inherit" target='_blank'  rel="noreferrer" href="https://onbeirut.onrender.com">
-                    onbeirut.onrender.com
-                </Link>{' '} {new Date().getFullYear()}
-                {'.'}
-            </Typography> */}
             <Typography variant="body2" color="textSecondary" component="p">
                 &copy; {new Date().getFullYear()} Haris Khan. All rights reserved.
             </Typography>
@@ -35,6 +28,21 @@ const styles = {
     gap: '15px',
     flexWrap: 'wrap',
     color: 'white'
+}
+
+// This footer is always dark, regardless of the site's light/dark mode, so
+// explicit white/light colors here (unlike ProjectCard) are intentional.
+// The bug was that Home/Contact weren't picking those up at all — a plain
+// anchor falls back to the browser's default link blue unless something
+// overrides it, and that's what was happening here.
+const footerLinkStyles = {
+    color: 'white',
+    textDecoration: 'none',
+    cursor: 'pointer',
+    width: 'fit-content',
+    ':hover': {
+        color: '#66b2ff'
+    }
 }
 
 function Footer() {
@@ -75,23 +83,18 @@ function Footer() {
                         <Typography variant='h1' fontSize='1.4em' fontWeight='400'>Links</Typography>
 
                         <Box className='link' sx={styles}>
-                            <Typography 
-                            className='FooterLink'
+                            <Typography
+                            component="span"
+                            sx={footerLinkStyles}
                             onClick={()=>{router.push('/'); gsap.to(window, {duration: .8, scrollTo: `#hero`})}}
                             >Home</Typography>
-                            <Link href='/contact'>Contact</Link>
-                         
-                            {/* <Typography 
-                            className='FooterLink'
-                            onClick={()=>{router.push('/'); gsap.to(window, {duration: .5, scrollTo: `#about`})}}
-                            >About</Typography> */}
+                            <Link href='/contact' style={footerLinkStyles}>Contact</Link>
                         </Box>
 
                     </Grid>
                     <Grid item xs={12} sm={3} md={3}>
                         <Typography variant='h1' fontSize='1.4em' fontWeight='400'>Contact</Typography>
                         <Box className='link' sx={styles}>
-                            {/* <a target='_blank' rel="noreferrer" href='https://github.com/VitoMedlej'>Github</a> */}
                             <Typography variant='h1' fontSize='1em'>hak173129@gmail.com</Typography>
                             <Typography variant='h1' fontSize='1em'>Lahore/Pakistan</Typography>
                             <Typography variant='h1' fontSize='1em'>+92 3340413873</Typography>

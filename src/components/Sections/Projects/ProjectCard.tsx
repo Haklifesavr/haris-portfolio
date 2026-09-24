@@ -72,7 +72,10 @@ const ProjectCard = ({
       }}
     >
       {/* Visual: real screenshot if supplied, otherwise a browser-chrome mock so an
-          empty state never looks like a broken/random screenshot */}
+          empty state never looks like a broken/random screenshot.
+          This frame is intentionally always dark (like a devtools/terminal
+          mock) regardless of site theme — the Content block below is the
+          part that follows light/dark mode via theme.palette. */}
       <Box
         sx={{
           flex: { xs: '0 0 auto', md: '0 0 46%' },
@@ -178,7 +181,7 @@ const ProjectCard = ({
                 boxShadow: '0 0 0 3px rgba(40,200,64,0.18)'
               }}
             />
-            <Typography sx={{ fontSize: '.78em', color: 'rgba(255,255,255,0.55)' }}>
+            <Typography sx={{ fontSize: '.78em', color: 'text.secondary' }}>
               Live in production
             </Typography>
           </Box>
@@ -188,7 +191,7 @@ const ProjectCard = ({
           sx={{
             fontSize: { xs: '1.5em', md: '1.7em' },
             fontWeight: 600,
-            color: 'white',
+            color: 'text.primary',
             mb: '.4em'
           }}
         >
@@ -200,7 +203,7 @@ const ProjectCard = ({
             fontSize: '.95em',
             fontWeight: 300,
             lineHeight: 1.6,
-            color: 'rgba(255,255,255,0.7)',
+            color: 'text.secondary',
             maxWidth: '52ch'
           }}
         >
@@ -214,10 +217,12 @@ const ProjectCard = ({
               label={tech}
               size="small"
               sx={{
-                background: 'rgba(255,255,255,0.06)',
-                color: 'rgba(255,255,255,0.75)',
+                background: (theme) =>
+                  theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.05)',
+                color: 'text.secondary',
                 fontSize: '.72em',
-                border: '1px solid rgba(255,255,255,0.08)'
+                border: (theme) =>
+                  `1px solid ${theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.1)'}`
               }}
             />
           ))}
@@ -251,9 +256,14 @@ const ProjectCard = ({
                   padding: '.55em 1.3em',
                   textTransform: 'none',
                   borderRadius: '7px',
-                  borderColor: 'rgba(255,255,255,0.25)',
-                  color: 'white',
-                  ':hover': { borderColor: 'white', background: 'rgba(255,255,255,0.04)' }
+                  borderColor: (theme) =>
+                    theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.25)' : 'rgba(0,0,0,0.25)',
+                  color: 'text.primary',
+                  ':hover': {
+                    borderColor: 'text.primary',
+                    background: (theme) =>
+                      theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.03)'
+                  }
                 }}
               >
                 <Typography fontSize="13px" fontWeight={500}>
