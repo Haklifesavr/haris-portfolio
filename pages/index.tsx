@@ -16,42 +16,48 @@ import OvoChatbot from '../assets/icons/ovo_chatbot.png'
 import Fynax from '../assets/icons/fynax.png'
 import CrmBoard from '../assets/icons/crm-board.png'
 
-const projectsArray = [
+// Drop this into pages/index.tsx in place of the old `projectsArray`.
+// No `img` is set for any entry — the card falls back to a clean browser-chrome
+// placeholder instead of a screenshot. Add `img: SomeImport` per project once
+// you have real screenshots; the layout doesn't need it to look finished.
+
+export const projectsArray = [
   {
-    title: 'Urdu Dictionaries',
-    description: 'Urdu Dictionaries is a comprehensive dictionary app designed to translate words between Urdu and English, French, Spanish, and German. The app was developed using React.js for the front end and Python for the back end. It leverages Elasticsearch as a NoSQL database for efficient data storage and retrieval. The app also integrates with the Oxford and Google Translate APIs to provide accurate translations.',
-    img: UrduDict,
-    repoUrl: 'https://github.com/Haklifesavr/urdu-dictionaries',
-    isReversed: false,
-  },  
-  {
-    title: 'Transform London',
-    description: 'Transform London is a web application that provides analytics and insights for different companies based on data extracted from Google Analytics and Lighthouse APIs. The data was collected using ETL processes and stored in Google BigQuery. We performed data transformations and then stored the processed data in Google Firestore, a NoSQL database. The backend was developed using Django, and the frontend was built with React, displaying the data in the form of graphs and tables.',
-    img: TransformLondon,
-    repoUrl: 'https://github.com/Haklifesavr/transform-london',
-    isReversed: true,
-  },  
-  {
-    title: 'OVO Chatbot',
-    description: 'OVO Chatbot is an advanced chatbot built on top of GPT. It allows organizations to train the chatbot using their company data, such as PDF documents, to assist employees with relevant and accurate information. The PDF content is stored as embeddings in Elasticsearch, enabling vector-based intelligent results and prompt engineering. The application was built using React for the frontend and Django for the backend. Elasticsearch was used as the vector database. The project was deployed on Google Cloud Run using GitHub CI/CD for continuous integration and deployment.',
-    img: OvoChatbot,
-    repoUrl: 'https://github.com/Haklifesavr/ovo-chatbot',
-    isReversed: false,
-  },  
-  {
-    title: 'Fynax Dashboards',
-    description: 'Fynax Dashboards is a comprehensive analytics platform similar to Transform London, but with an additional admin panel feature. This platform allows users to add and manage dashboards for any company, enabling the sale and handover of dashboards with user access. The backend is developed with Django and the frontend with React, displaying data in the form of graphs and tables. The platform is deployed on Google Cloud Run using GitHub CI/CD for continuous integration and deployment.',
-    img: Fynax,
-    repoUrl: 'https://github.com/Haklifesavr/fynax-dashboards',
-    isReversed: true,
+    title: 'Daivio',
+    description:
+      'An AI platform for building and running LLM workflows, with a deep integration into Microsoft Fabric — including Fabric Entra auth, workload publishing, and cross-tenant validation.',
+    stack: ['Next.js', 'Django', 'Microsoft Fabric SDK', 'PostgreSQL'],
+    liveUrl: 'https://daivio.com',
+    domain: 'daivio.com',
+    accent: '#7c5cff'
   },
   {
-    title: 'CRM Dashboards',
-    description: 'This Django-based web application serves both backend and frontend needs using Django templates. It features secure user authentication, allowing users to register and log in. Admins can manage user accounts through an administrative interface. The app includes a real-time chat system for authenticated users and a Kanban board for task management, helping employees organize and track tasks visually.',
-    img: CrmBoard,
-    repoUrl: 'https://github.com/Haklifesavr/crms-dashboard',
-    isReversed: false,
-  }  
+    // No working liveUrl or repoUrl set — fill these in once you have a real
+    // link (live site or GitHub repo). Until then the card just shows the
+    // description/stack with no CTA button, instead of a dead link.
+    title: 'BidAlert',
+    description:
+      'An automated tender-tracking SaaS for municipal procurement — scrapes and normalizes public tender listings, then alerts subscribers to relevant bids as they post.',
+    stack: ['Supabase', 'Apify', 'MySQL', 'Resend'],
+    accent: '#f59e0b'
+  },
+  {
+    // Same here — add liveUrl and/or repoUrl once you have one that resolves.
+    title: 'EzLearn',
+    description:
+      'An educational platform with a Python backend and RESTful APIs powering an AI-driven recommendation engine, matching learners to content based on progress and interests.',
+    stack: ['Python', 'Django REST Framework', 'React'],
+    accent: '#22c55e'
+  },
+  {
+    title: 'Transform London',
+    description:
+      'An analytics dashboard pulling from the Google Analytics and Lighthouse APIs through a BigQuery ETL pipeline, surfacing performance and traffic insights as graphs and tables.',
+    stack: ['Django', 'React', 'BigQuery', 'Google Firestore'],
+    repoUrl: 'https://github.com/Haklifesavr/transform-london',
+    domain: 'transformlondon.co.uk',
+    accent: '#0092ff'
+  }
 ];
 
 

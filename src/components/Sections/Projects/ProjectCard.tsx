@@ -1,155 +1,271 @@
-import { Box, Typography, Button } from '@mui/material';
-import { useEffect, useRef, useState } from 'react';
-import { IProjectCard } from '../../../Types/Types';
-import { btnStyles } from '../Hero/Hero';
-import Image from 'next/image'
+import { Box, Typography, Button, Chip } from '@mui/material';
+import { useEffect, useRef } from 'react';
+import Image from 'next/image';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+export interface IProjectCard {
+  className?: string;
+  isReversed: boolean;
+  title: string;
+  description: string;
+  stack: string[];
+  liveUrl?: string;
+  repoUrl?: string;
+  domain?: string; // shown in the browser chrome address bar, e.g. "daivio.com"
+  img?: any; // optional real screenshot; falls back to a browser-chrome placeholder when absent
+  accent?: string; // hex accent used for the live dot + chip highlight
+}
 
 const ProjectCard = ({
   isReversed,
   img,
   className,
+  liveUrl,
   repoUrl,
   title,
-  description
+  description,
+  stack,
+  domain,
+  accent = '#0092ff'
 }: IProjectCard) => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ref.current,
+        { opacity: 0, y: 24 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: ref.current,
+            start: 'top 85%'
+          }
+        }
+      );
+    });
+    return () => ctx.revert();
+  }, []);
 
   return (
     <Box
+      ref={ref}
       className={className}
       sx={{
         display: 'flex',
-        my: {
-          xs: '0em',
-          sm: '1em',
-          md: '3em'
-        },
         flexDirection: {
           xs: 'column',
-          md: `${isReversed ? 'row' : 'row-reverse'}`
+          md: isReversed ? 'row' : 'row-reverse'
         },
-        alignItems: 'center',
-        transform: isReversed ? 'translateX(-150%)' : 'translateX(150%)'
+        alignItems: 'stretch',
+        gap: { xs: '1.5em', md: '2.5em' },
+        my: { xs: '2.5em', md: '3.5em' }
       }}
     >
+      {/* Visual: real screenshot if supplied, otherwise a browser-chrome mock so an
+          empty state never looks like a broken/random screenshot */}
       <Box
         sx={{
-          width: {
-            xs: '100%',
-            sm: '600px'
-          },
-          minWidth: {
-            xs: 'auto',
-            sm: '250px',
-            md: '390px'
-          },
-          height: '400px',
-          position: 'relative'
+          flex: { xs: '0 0 auto', md: '0 0 46%' },
+          minWidth: 0,
+          borderRadius: '10px',
+          overflow: 'hidden',
+          border: '1px solid rgba(255,255,255,0.08)',
+          boxShadow: '0 12px 30px rgba(0,0,0,0.28)',
+          background: '#14161c'
         }}
       >
-        {img ? (
-          <Image
-            alt='Project Image'
-            src={img}
-            layout='fill'
-            objectFit='cover'
-            className='img1'
-           />
-        ) : (
-          <Typography variant='h5' sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', color: 'gray' }}>
-            Image
-          </Typography>
-        )}
-      </Box>
-      <Box
-        ref={ref}
-        sx={{
-          borderRadius: '6px',
-          width: {
-            xs: '94%',
-            md: 'auto'
-          },
-          position: 'relative',
-          transform: {
-            xs: 'translateY(-25%)',
-            md: `${isReversed ? 'translateX(-25%)' : 'translateX(25%)'}`
-          },
-          maxWidth: '600px',
-          padding: '2em 1.5em',
-          textAlign: 'left',
-          boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
-          background: 'white',
-          color: 'black',
-          display: 'flex',
-          flexDirection: 'row-reverse',
-          alignItems: 'center'
-        }}
-      >
-        <Box>
-          <Typography
-            color='black'
-            sx={{
-              fontSize: '1.4em',
-              fontWeight: '500',
-              pb: '.25em'
-            }}
-          >
-            {title}
-          </Typography>
-          <Typography
-            color='black'
-            variant='h3'
-            sx={{
-              fontSize: {
-                xs: '.83em',
-                sm: '.9em'
-              },
-              fontWeight: '300'
-            }}
-          >
-            {description}
-          </Typography>
-          <Box
-            sx={{
-              gap: '.5em',
-              display: 'flex',
-              flexWrap: 'wrap',
-              mt: '1em'
-            }}
-          >
-            <a href={repoUrl} rel="noreferrer" target="_blank">
-              <Button
-                variant='contained'
-                sx={{
-                    ...btnStyles,
-                    padding: '.5em .8em',
-                  }}
+        {/* chrome bar */}
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '.5em',
+            px: '.9em',
+            py: '.6em',
+            background: '#1b1e26',
+            borderBottom: '1px solid rgba(255,255,255,0.06)'
+          }}
+        >
+          <Box sx={{ display: 'flex', gap: '.35em' }}>
+            {['#ff5f57', '#febc2e', '#28c840'].map((c) => (
+              <Box key={c} sx={{ width: 9, height: 9, borderRadius: '50%', background: c, opacity: 0.85 }} />
+            ))}
+          </Box>
+          {domain && (
+            <Box
+              sx={{
+                ml: '.6em',
+                px: '.7em',
+                py: '.15em',
+                borderRadius: '5px',
+                background: 'rgba(255,255,255,0.05)',
+                flexGrow: 1,
+                minWidth: 0
+              }}
+            >
+              <Typography
+                noWrap
+                sx={{ fontSize: '.72em', color: 'rgba(255,255,255,0.55)' }}
               >
-                <Typography fontSize='12px'>
-                  Check Code
+                {domain}
+              </Typography>
+            </Box>
+          )}
+        </Box>
+
+        {/* body */}
+        <Box sx={{ position: 'relative', width: '100%', height: { xs: 220, md: 280 } }}>
+          {img ? (
+            <Image alt={`${title} preview`} src={img} layout="fill" objectFit="cover" />
+          ) : (
+            <Box
+              sx={{
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: `linear-gradient(135deg, ${accent}22 0%, #14161c 70%)`
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: { xs: '2.4em', md: '3em' },
+                  fontWeight: 600,
+                  color: 'rgba(255,255,255,0.18)',
+                  letterSpacing: '.02em'
+                }}
+              >
+                {title
+                  .split(' ')
+                  .map((w) => w[0])
+                  .join('')
+                  .slice(0, 3)}
+              </Typography>
+            </Box>
+          )}
+        </Box>
+      </Box>
+
+      {/* Content */}
+      <Box
+        sx={{
+          flex: 1,
+          minWidth: 0,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center'
+        }}
+      >
+        {liveUrl && (
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: '.5em', mb: '.6em' }}>
+            <Box
+              sx={{
+                width: 7,
+                height: 7,
+                borderRadius: '50%',
+                background: '#28c840',
+                boxShadow: '0 0 0 3px rgba(40,200,64,0.18)'
+              }}
+            />
+            <Typography sx={{ fontSize: '.78em', color: 'rgba(255,255,255,0.55)' }}>
+              Live in production
+            </Typography>
+          </Box>
+        )}
+
+        <Typography
+          sx={{
+            fontSize: { xs: '1.5em', md: '1.7em' },
+            fontWeight: 600,
+            color: 'white',
+            mb: '.4em'
+          }}
+        >
+          {title}
+        </Typography>
+
+        <Typography
+          sx={{
+            fontSize: '.95em',
+            fontWeight: 300,
+            lineHeight: 1.6,
+            color: 'rgba(255,255,255,0.7)',
+            maxWidth: '52ch'
+          }}
+        >
+          {description}
+        </Typography>
+
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '.5em', mt: '1.1em' }}>
+          {stack.map((tech) => (
+            <Chip
+              key={tech}
+              label={tech}
+              size="small"
+              sx={{
+                background: 'rgba(255,255,255,0.06)',
+                color: 'rgba(255,255,255,0.75)',
+                fontSize: '.72em',
+                border: '1px solid rgba(255,255,255,0.08)'
+              }}
+            />
+          ))}
+        </Box>
+
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '.7em', mt: '1.4em' }}>
+          {liveUrl && (
+            <a href={liveUrl} rel="noreferrer" target="_blank" style={{ textDecoration: 'none' }}>
+              <Button
+                variant="contained"
+                sx={{
+                  background: accent,
+                  color: '#fff',
+                  padding: '.55em 1.3em',
+                  textTransform: 'none',
+                  borderRadius: '7px',
+                  ':hover': { background: accent, opacity: 0.88 }
+                }}
+              >
+                <Typography fontSize="13px" fontWeight={500}>
+                  Visit Site
                 </Typography>
               </Button>
             </a>
-            {/* <a href={"https://crm-django-sz3c6uf2gq-uc.a.run.app/"} rel="noreferrer" target="_blank">
+          )}
+          {repoUrl && (
+            <a href={repoUrl} rel="noreferrer" target="_blank" style={{ textDecoration: 'none' }}>
               <Button
-                variant='contained'
+                variant="outlined"
                 sx={{
-                    ...btnStyles,
-                    padding: '.5em .8em',
-                    color: 'white',
-                    border: '1px solid #0092ff'
-                  }}
+                  padding: '.55em 1.3em',
+                  textTransform: 'none',
+                  borderRadius: '7px',
+                  borderColor: 'rgba(255,255,255,0.25)',
+                  color: 'white',
+                  ':hover': { borderColor: 'white', background: 'rgba(255,255,255,0.04)' }
+                }}
               >
-                <Typography fontSize='12px'>
-                  Live Preview
+                <Typography fontSize="13px" fontWeight={500}>
+                  View Code
                 </Typography>
               </Button>
-            </a> */}
-          </Box>
+            </a>
+          )}
         </Box>
       </Box>
     </Box>
   );
-}
+};
 
 export default ProjectCard;
