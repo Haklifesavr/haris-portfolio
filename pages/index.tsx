@@ -32,21 +32,23 @@ export const projectsArray = [
     accent: '#7c5cff'
   },
   {
-    // No working liveUrl or repoUrl set — fill these in once you have a real
-    // link (live site or GitHub repo). Until then the card just shows the
-    // description/stack with no CTA button, instead of a dead link.
+    // domain is shown purely as a label in the browser-chrome mock — it is not
+    // a link. No liveUrl/repoUrl set, so no CTA button renders and no "Live"
+    // badge shows, until you give me a real link that resolves.
     title: 'BidAlert',
     description:
       'An automated tender-tracking SaaS for municipal procurement — scrapes and normalizes public tender listings, then alerts subscribers to relevant bids as they post.',
     stack: ['Supabase', 'Apify', 'MySQL', 'Resend'],
+    domain: 'bidalert.bid',
     accent: '#f59e0b'
   },
   {
-    // Same here — add liveUrl and/or repoUrl once you have one that resolves.
+    // Same here — domain is a label only, add liveUrl/repoUrl once one resolves.
     title: 'EzLearn',
     description:
       'An educational platform with a Python backend and RESTful APIs powering an AI-driven recommendation engine, matching learners to content based on progress and interests.',
     stack: ['Python', 'Django REST Framework', 'React'],
+    domain: 'ezlearn.in',
     accent: '#22c55e'
   },
   {
