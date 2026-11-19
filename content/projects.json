@@ -1,0 +1,120 @@
+{
+  "projects": [
+    {
+      "id": "daivio",
+      "title": "Daivio",
+      "summary": "AI analytics platform built natively for Microsoft Fabric, with LLM workflows, RAG and Azure AI Foundry models. Live in production and published as a Fabric workload.",
+      "stack": [
+        "Next.js",
+        "Django",
+        "Microsoft Fabric",
+        "Azure AI Foundry",
+        "RAG"
+      ],
+      "liveUrl": "https://daivio.com/",
+      "repoUrl": "",
+      "role": "Freelance",
+      "owned": "Backend and API work across the Next.js and Django stack, the Microsoft Fabric integration built on the Fabric Extensibility Toolkit SDK, and the Azure AI Foundry model workflows.",
+      "challenge": "Making the Fabric integration production-grade: Entra token expiry, session token pollution and load-time race conditions.",
+      "result": "Resolved all three for production stability; the platform is published as a Microsoft Fabric workload and live at daivio.com.",
+      "image": "/projects/daivio.webp",
+      "featured": true
+    },
+    {
+      "id": "schoolio",
+      "title": "Schoolio.ae",
+      "summary": "Education discovery platform for the UAE that helps parents compare schools and nurseries.",
+      "stack": [
+        "Next.js",
+        "PostgreSQL (RDS)",
+        "AWS",
+        "Google Places"
+      ],
+      "liveUrl": "",
+      "repoUrl": "",
+      "role": "Client project",
+      "owned": "The full-stack build: Next.js frontend, serverless backend, and the AWS deployment with RDS PostgreSQL.",
+      "challenge": "Search, filtering and side-by-side comparison across hundreds of institutions, backed by cloud-optimised database queries.",
+      "result": "",
+      "image": "",
+      "featured": true
+    },
+    {
+      "id": "mslm-cloud",
+      "title": "Mslm Cloud",
+      "summary": "Cloud SaaS platform with fine-grained permissions, subscription billing and real-time analytics.",
+      "stack": [
+        "React",
+        "PostgreSQL",
+        "SpiceDB",
+        "Stripe"
+      ],
+      "liveUrl": "",
+      "repoUrl": "",
+      "role": "Mslm",
+      "owned": "Architected the backend, the SpiceDB permission system and Stripe billing, plus real-time analytics dashboards and REST APIs.",
+      "challenge": "Fine-grained, per-resource authorisation and subscription billing for enterprise clients on a microservices backend.",
+      "result": "",
+      "image": "",
+      "featured": true
+    },
+    {
+      "id": "ezlearn",
+      "title": "EzLearn",
+      "summary": "Subscription learning platform with DRM video streaming, Razorpay payments and AI-generated course roadmaps.",
+      "stack": [
+        "React",
+        "Django",
+        "PostgreSQL",
+        "GCP",
+        "OpenAI"
+      ],
+      "liveUrl": "",
+      "repoUrl": "",
+      "role": "Client project",
+      "owned": "Django and PostgreSQL backend for courses and users, Razorpay subscriptions, VdoCipher DRM video and OpenAI-powered roadmaps; deployed on GCP App Engine and Cloud Run.",
+      "challenge": "Combining paid subscriptions, protected video and AI-generated learning paths in one product.",
+      "result": "",
+      "image": "",
+      "featured": false
+    },
+    {
+      "id": "bidalert",
+      "title": "BidAlert",
+      "summary": "Automated tender-tracking SaaS for municipal procurement: scrapes and normalises public tender listings, then alerts subscribers to relevant bids as they post.",
+      "stack": [
+        "Supabase",
+        "Apify",
+        "MySQL",
+        "Resend"
+      ],
+      "liveUrl": "",
+      "repoUrl": "",
+      "role": "",
+      "owned": "",
+      "challenge": "",
+      "result": "",
+      "image": "",
+      "featured": false
+    },
+    {
+      "id": "transform-london",
+      "title": "Transform London",
+      "summary": "Analytics dashboard that pulls Google Analytics and Lighthouse data through a BigQuery ETL pipeline and surfaces performance and traffic insights.",
+      "stack": [
+        "Django",
+        "React",
+        "BigQuery",
+        "Firestore"
+      ],
+      "liveUrl": "",
+      "repoUrl": "https://github.com/Haklifesavr/transform-london",
+      "role": "",
+      "owned": "",
+      "challenge": "",
+      "result": "",
+      "image": "/projects/transform-london.webp",
+      "featured": false
+    }
+  ]
+}
