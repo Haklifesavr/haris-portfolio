@@ -12,7 +12,7 @@ export const profile = {
   links: {
     github: 'https://github.com/Haklifesavr',
     linkedin: 'https://www.linkedin.com/in/haris-ahmed-khan-819309192/',
-    resume: 'https://drive.google.com/file/d/1D8KqcnBBgsEV8rRTpBiSy-wfHoMUo7f-/view?usp=sharing',
+    resume: 'https://drive.google.com/file/d/17_5TzOOnDrlJ2--OZgeqhEebcHosXudK/view?usp=sharing',
   },
   stats: [
     { value: '4+', label: 'years building production web apps' },
