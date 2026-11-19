@@ -27,7 +27,6 @@ export const profile = {
       period: 'Nov 2024 – Present',
       points: [
         'Led 5+ client projects from inception to production across Django, Next.js and React.',
-        'Delivered AI platform work for Daivio: Microsoft Fabric LLM workflow integrations, RAG capabilities and Azure AI Foundry models.',
         'Designed AWS-based ETL pipelines for enterprise-scale data transformation.',
         'Ran CI/CD on GitHub Actions and GitLab CI/CD, cutting release cycles by 50%.',
       ],
