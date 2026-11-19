@@ -37,7 +37,7 @@ export const profile = {
       title: 'Software Engineer',
       period: 'Sep 2023 – Oct 2024',
       points: [
-        'Built cloud-native Python microservices and REST APIs for a high-traffic production environment.',
+        'Built cloud-native Go and Python microservices and REST APIs for a high-traffic production environment.',
         'Developed and published Python SDKs for third-party developers.',
         'Integrated Stripe subscription billing and fine-grained authorisation with AuthZed SpiceDB.',
       ],
@@ -54,7 +54,7 @@ export const profile = {
     },
   ],
   skills: [
-    { group: 'Languages', items: ['Python', 'TypeScript', 'JavaScript'] },
+    { group: 'Languages', items: ['Python', 'Go (Golang)', 'TypeScript', 'JavaScript'] },
     { group: 'Backend', items: ['Django', 'Django REST Framework', 'Flask', 'Node.js', 'GraphQL'] },
     { group: 'Frontend', items: ['React', 'Next.js', 'React Native', 'Meteor.js'] },
     { group: 'AI / LLM', items: ['RAG pipelines', 'Vector databases', 'Prompt engineering', 'Azure AI Foundry', 'Microsoft Fabric', 'OpenAI API'] },

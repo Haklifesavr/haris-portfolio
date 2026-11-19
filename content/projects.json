@@ -45,6 +45,7 @@
       "summary": "Cloud SaaS platform with fine-grained permissions, subscription billing and real-time analytics.",
       "stack": [
         "React",
+        "Go",
         "PostgreSQL",
         "SpiceDB",
         "Stripe"
@@ -52,7 +53,7 @@
       "liveUrl": "",
       "repoUrl": "",
       "role": "Mslm",
-      "owned": "Architected the backend, the SpiceDB permission system and Stripe billing, plus real-time analytics dashboards and REST APIs.",
+      "owned": "Architected the Go backend, the SpiceDB permission system and Stripe billing, plus real-time analytics dashboards and REST APIs.",
       "challenge": "Fine-grained, per-resource authorisation and subscription billing for enterprise clients on a microservices backend.",
       "result": "",
       "image": "",
