@@ -36,7 +36,7 @@
       "owned": "Everything: architecture, implementation, tests and CI. Retries with backoff, per-provider circuit breakers, per-key rate limits and token budgets, a response cache and Prometheus metrics.",
       "challenge": "Keeping one OpenAI-compatible interface while translating Anthropic's different request and streaming formats, and deciding which failures to retry, fall back on or return to the client, including mid-stream.",
       "result": "Requests keep being served through a provider outage. Tested end to end with fake upstreams and a fake clock, race-detector clean, with CI on every push.",
-      "image": "/projects/switchyard.webp",
+      "image": "/projects/switchyard-terminal.webp",
       "featured": true
     },
     {
