@@ -36,7 +36,7 @@ export const profile = {
       title: 'Software Engineer',
       period: 'Sep 2023 – Oct 2024',
       points: [
-        'Built cloud-native Go and Python microservices and REST APIs for a high-traffic production environment.',
+        'Built Go microservices and REST APIs for a high-traffic production environment.',
         'Developed and published Python SDKs for third-party developers.',
         'Integrated Stripe subscription billing and fine-grained authorisation with AuthZed SpiceDB.',
       ],
