@@ -21,6 +21,25 @@
       "featured": true
     },
     {
+      "id": "switchyard",
+      "title": "Switchyard",
+      "summary": "Open-source LLM gateway in Go. Apps call one OpenAI-compatible API; Switchyard routes each request to OpenAI, Anthropic or a local model, with automatic fallback when a provider fails.",
+      "stack": [
+        "Go",
+        "Prometheus",
+        "Docker",
+        "GitHub Actions"
+      ],
+      "liveUrl": "",
+      "repoUrl": "https://github.com/Haklifesavr/switchyard",
+      "role": "Open source",
+      "owned": "Everything: architecture, implementation, tests and CI. Retries with backoff, per-provider circuit breakers, per-key rate limits and token budgets, a response cache and Prometheus metrics.",
+      "challenge": "Keeping one OpenAI-compatible interface while translating Anthropic's different request and streaming formats, and deciding which failures to retry, fall back on or return to the client, including mid-stream.",
+      "result": "Requests keep being served through a provider outage. Tested end to end with fake upstreams and a fake clock, race-detector clean, with CI on every push.",
+      "image": "/projects/switchyard.webp",
+      "featured": true
+    },
+    {
       "id": "schoolio",
       "title": "Schoolio.ae",
       "summary": "Education discovery platform for the UAE that helps parents compare schools and nurseries.",
